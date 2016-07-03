@@ -1,4 +1,5 @@
 var React = require('react');
+var TodoList = require('TodoList');
 
 var TodoApp = React.createClass({
   getInitialState: function () {
@@ -16,9 +17,10 @@ var TodoApp = React.createClass({
     };
   },
   render: function () {
+    var {todos} = this.state;
     return (
       <div>
-        TodoApp.jsx
+        <TodoList todos={todos}/>
       </div>
     );
   }
