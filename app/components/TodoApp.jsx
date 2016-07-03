@@ -12,7 +12,7 @@ var TodoApp = React.createClass({
           id: 2,
           task: 'Clean room'
         }
-      ];
+      ]
     };
   },
   render: function () {
