@@ -26,4 +26,4 @@ var TodoSearch = React.createClass({
 });
 
 module.exports = TodoSearch;
-//onChange attribute kind of like onclick or onSubmit but it gets called everytime the value is changing someone types a letter a, its gonna update rendering only todos that has A.
+//onChange attribute kind of like onclick or onSubmit but it gets called everytime the value is changing someone types a letter a, its gonna update rendering only todos that has a or A.
