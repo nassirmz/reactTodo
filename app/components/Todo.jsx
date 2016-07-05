@@ -6,10 +6,14 @@ var Todo = React.createClass({
     this.props.completed = this.props.completed ? false : true;
   },
   render: function () {
-    var {id, task, completed, createdAt} = this.props;
+    var {id, task, completed, createdAt, completedAt} = this.props;
     var renderDate = () => {
       var message = 'Created ';
       var timestamp = createdAt;
+      if(completed) {
+        message = 'Completed ';
+        timestamp = completedAt;
+      }
       return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
     };
 
