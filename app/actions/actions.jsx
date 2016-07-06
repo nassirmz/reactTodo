@@ -19,8 +19,9 @@ export var toggleShowCompleted = () => {
   };
 };
 
-export var toggleTodo = () => {
+export var toggleTodo = (id) => {
   return {
     type: 'TOGGLE_TODO'
+    id
   };
 };
