@@ -13,17 +13,17 @@ export var searchTextReducer = (state = '', action) => {
 
 export var showCompoletedReducer = (state = false, action) => {
   switch (action.type) {
-    case 'TOGGLE_SHOW_COMPLETED',
+    case 'TOGGLE_SHOW_COMPLETED':
       return !state;
     default:
       return state;
   };
 };
 
-export var toggleTodoReducer = (state = [], action) => {
+export var todosReducer = (state = [], action) => {
   switch(action.type) {
     case 'ADD_TODO':
-      return {
+      return [
         ...state,
         {
           id: uuid(),
@@ -32,7 +32,7 @@ export var toggleTodoReducer = (state = [], action) => {
           createdAt: moment().unix(),
           completedAt: undefined
         }
-      };
+      ];
     case 'TOGGLE_TODO':
       return state.map((todo) => {
         if(todo.id === action.id) {
@@ -41,9 +41,9 @@ export var toggleTodoReducer = (state = [], action) => {
             ...todo,
             completed: nextCompleted,
             completedAt: moment().unix()
-          }
+          };
         }
-      })
+      });
     default:
       return state;
   }
