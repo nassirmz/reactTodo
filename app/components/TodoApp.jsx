@@ -50,7 +50,7 @@ var TodoApp = React.createClass({
             <div className="container">
               <TodoSearch onSearch={this.handleSearch} />
               <TodoList/>
-              <AddTodo onAddTodo={this.handleAddTodo} />
+              <AddTodo/>
             </div>
           </div>
         </div>
