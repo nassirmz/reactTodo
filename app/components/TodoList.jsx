@@ -1,19 +1,20 @@
 var React = require('react');
-var Todo = require('Todo');
 var {connect} = require('react-redux');
+var Todo = require('Todo');
+var TodoAPI = require('TodoAPI');
 
-var TodoList = React.createClass({
+export var TodoList = React.createClass({
   render: function () {
-    var {todos} = this.props;
+    var {todos, showCompleted, searchText} = this.props;
     var renderTodos = () => {
-      return todos.map((todo) => {
-        if(todos.length ===0) {
-          return (
-            <p className="container-message">Nothing To Do</p>
-          );
-        }
+      if (todos.length ===0) {
         return (
-          <Todo key={todo.id} {...todo} onToggle={this.props.onToggle} />
+          <p className="container-message">Nothing To Do</p>
+        );
+      }
+      return TodoAPI.filterTodos(todos, showCompleted, searchText).map((todo) => {
+        return (
+          <Todo key={todo.id} {...todo}/>
         );
         //When you generating multiple instances of the same component we have to give them a unique key prop i.e key={todo.id}
       });
@@ -26,10 +27,8 @@ var TodoList = React.createClass({
   }
 });
 
-module.exports = connect(
+module.exports =  connect(
   (state) => {
-    return {
-      todos: state.todos
-    };
+    return state;
   }
 )(TodoList);

@@ -3,7 +3,7 @@ var moment = require('moment');
 var {connect} = require('react-redux');
 var actions = require('actions');
 
-var Todo = React.createClass({
+export var Todo = React.createClass({
   onCheckboxChange: function () {
     this.props.completed = this.props.completed ? false : true;
   },
