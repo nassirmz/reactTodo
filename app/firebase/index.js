@@ -2,10 +2,10 @@ import firebase from 'firebase/firebase-browser';
 
 try {
   var config = {
-     apiKey: "AIzaSyC0jjU8Tj9r83Tccvt1_WMdDmrQ4Jt3sXc",
-     authDomain: "zeinu-todo.firebaseapp.com",
-     databaseURL: "https://zeinu-todo.firebaseio.com",
-     storageBucket: "zeinu-todo.appspot.com",
+     apiKey: process.env.API_KEY,
+     authDomain: process.env.AUTH_DOMAIN,
+     databaseURL: process.env.DATABASE_URL,
+     storageBucket: process.env.STORAGE_BUCKET
    };
 
   firebase.initializeApp(config);
