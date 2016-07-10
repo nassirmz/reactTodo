@@ -34,12 +34,19 @@ var requireLogin = (nextState, replace, next) => {
   next();
 };
 
+var redirectIfLoggedIn= (nextState, replace, next) => {
+  if(firebase.auth().currentUser) {
+    replace('/todos');
+  }
+  next();
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/">
         <Route path="todos" component={TodoApp} onEnter={requireLogin}/>
-        <IndexRoute component={Login} />
+        <IndexRoute component={Login} onEnter={redirectIfLoggedIn}/>
       </Route>
     </Router>
   </Provider>,
